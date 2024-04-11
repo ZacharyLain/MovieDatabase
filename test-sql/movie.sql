@@ -43,11 +43,11 @@ CREATE TABLE movie (
   m_length INT,
   cat_id INT,
   rating_id INT,
-  mrpp_id INT,
+  mrp_id INT,
   PRIMARY KEY (m_id),
   FOREIGN KEY (cat_id) REFERENCES category(cat_id),
   FOREIGN KEY (rating_id) REFERENCES rating(rating_id),
-  FOREIGN KEY (mrpp_id) REFERENCES movie_people_role(mrp_id)
+  FOREIGN KEY (mrp_id) REFERENCES movie_people_role(mrp_id)
 );
 
 -- Inserting sample data
