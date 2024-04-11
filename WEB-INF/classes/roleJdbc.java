@@ -25,15 +25,13 @@ public class roleJdbc extends HttpServlet {
             
             // Create a statement and execute a query
             stmt = con.createStatement();
-            String query = "SELECT mr_id, mr_roleName " +
-                           "FROM movie_people ";
+            String query = "SELECT mr_id, mr_roleName FROM movie_role";
             rs = stmt.executeQuery(query);
             
             // HTML table header
             out.println("<html><head><title>Movie Table Report</title></head><body>");
             out.println("<center><table border='1'><tr BGCOLOR='#cccccc'>" +
-                        "<td>ID</td><td>Title</td><td>Release Date</td><td>Duration</td>" +
-                        "<td>Category</td><td>Rating</td></tr>");
+                        "<td>ID</td><td>Role Name</td></tr>");
 
             
             // Process the result set
@@ -57,6 +55,9 @@ public class roleJdbc extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        
+        // add a button to take back to the main page
+		out.println("<br><p><a href=\"\\Movie\\index.html\"><img border=\"0\" src=\".\\html\\goback.jpg\" width=\"100\" height=\"66\"></a></p>");
         out.println("</body></html>");
     }
 }
