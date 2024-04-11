@@ -54,10 +54,7 @@ public class role_upd extends HttpServlet
 		}
 		
 		// create the query to update the movie
-		query = "update movie_role set mr_roleName = \'"+mr_roleName+"\"\'	where mr_id = \'"+mr_id+"\'";
-		
-		out.println("<html><head><title>Role has been updated</title>");	 
-		out.println("</head><body>");
+		query = "update movie_role set mr_roleName = \'"+mr_roleName+"\' where mr_id = \'"+mr_id+"\'";
 		
 		out.print( "<br /><b><center><font color=\"BLACK\"><H2>One Record has updated</H2></font>");
         out.println( "</center><br />" );
