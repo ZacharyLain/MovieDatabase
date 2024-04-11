@@ -65,6 +65,12 @@ INSERT INTO rating VALUES (2, 'R');
 INSERT INTO rating VALUES (3, 'PG');
 INSERT INTO rating VALUES (4, 'PG-13');
 
+-- Movie Roles
+INSERT INTO movie_role VALUES (1, 'Director');
+INSERT INTO movie_role VALUES (2, 'Writer');
+INSERT INTO movie_role VALUES (3, 'Actor');
+INSERT INTO movie_role VALUES (4, 'Producer');
+
 -- Movies with year only
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('The Shawshank Redemption', 1994, 142, 1, 3);
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('The Godfather', 1972, 175, 1, 3);
