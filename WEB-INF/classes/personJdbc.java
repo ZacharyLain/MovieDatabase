@@ -25,14 +25,13 @@ public class personJdbc  extends HttpServlet {
             
             // Create a statement and execute a query
             stmt = con.createStatement();
-            String query = "SELECT p_id, p_firstName, p_lastName, p_gender, compensation FROM person";
+            String query = "SELECT p_id, p_firstName, p_lastName, p_gender FROM person";
             rs = stmt.executeQuery(query);
             
             // HTML table header
             out.println("<html><head><title>Person Report</title></head><body>");
             out.println("<center><table border='1'><tr BGCOLOR='#cccccc'>" +
-                        "<td>ID</td><td>Title</td><td>Release Date</td><td>Duration</td>" +
-                        "<td>Category</td><td>Rating</td></tr>");
+                        "<td>ID</td><td>First Name</td><td>Last Name</td><td>Gender</td></tr>");
 
             
             // Process the result set
