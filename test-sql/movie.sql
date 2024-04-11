@@ -71,6 +71,12 @@ INSERT INTO movie_role VALUES (2, 'Writer');
 INSERT INTO movie_role VALUES (3, 'Actor');
 INSERT INTO movie_role VALUES (4, 'Producer');
 
+-- People
+INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (1, 'John', 'Doe', 'Male');
+INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (2, 'Jane', 'Doe', 'Female');
+INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (3, 'Alice', 'Smith', 'Female');
+INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (4, 'Bob', 'Jones', 'Male');
+
 -- Movies with year only
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('The Shawshank Redemption', 1994, 142, 1, 3);
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('The Godfather', 1972, 175, 1, 3);
