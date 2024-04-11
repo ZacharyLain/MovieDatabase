@@ -85,6 +85,20 @@ INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('Life i
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('Psycho', 1960, 109, 3, 3);
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('R-Rated Fantasy', 1994, 88, 8, 2);
 
+-- Movie People Roles
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 1, 1, 1000000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 1, 2, 500000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (3, 1, 3, 200000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 2, 1, 1000000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 2, 2, 500000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (3, 2, 3, 200000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 3, 1, 1000000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 3, 2, 500000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (3, 3, 3, 200000);
+
+-- select people and their compensation for a movie
+SELECT p.p_id, p_firstName, p_lastName, p_gender, mpr.compensation FROM person p LEFT JOIN movie_people_role mpr ON p.p_id = mpr.p_id;
+
 -- reset database
 delete from movie;
 alter table movie modify m_id generated always as identity restart start with 1;
