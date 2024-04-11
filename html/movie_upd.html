@@ -1,0 +1,50 @@
+
+<head>
+	    <title>Movie Update</title>
+	  </head>
+
+<html>
+	  <body>
+	    <h2><font color="#FF0000">Update a Movie</font></h2>
+		<form method = "get" action = "/Movie/movie_upd">
+	      <p>ID: <font color = "#FF0000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<input type = "text" name = "m_id" size="12">&nbsp;
+	         Title:&nbsp;
+	         <input type = "text" name = "m_title" size="21">&nbsp;
+	      </p>
+	      <p>Description:&nbsp;&nbsp;&nbsp;
+	         <input type = "text" name = "m_synopsis" size = "42">&nbsp;   
+	      </p>
+		  Release Date: <input type = "text" name = "m_date" size = "10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  Length:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	         <input type = "text" name = "m_length" size = "15">&nbsp;
+	      <p>Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	         <select size = "1" name = "cat_id">
+	           <option value = "1">Action</option>
+	           <option value = "2">Animation</option>
+	           <option value = "3">Comedy</option>
+			   <option value = "4">Drama</option>
+	           <option value = "5">Family</option>
+	           <option value = "6">Herror</option>
+			   <option value = "7">Romance</option>
+	           <option value = "8">Fantasy</option>
+	         </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rating:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			 <select size = "1" name = "rating_id">
+	           <option value = "1">G</option>
+	           <option value = "2">R</option>
+	           <option value = "3">PG</option>
+			   <option value = "4">PG-13</option>
+			 </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      </p>
+	      <p>
+	         &nbsp;
+	      </p>
+	      <p><input type = "submit" name = "Submit" value = "Submit">
+	         <input type = "reset" value = "Reset">
+	      </p>
+	    </form>
+	    <p><font color = "#FF0000">* required fields</font></p>
+	  	<p><a href="\Movie\index.html">
+		<img border="0" src="goback.jpg" width="41" height="66"></a></p>
+	  </body>
+</html>
+

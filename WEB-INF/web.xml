@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+    "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+  
+   <servlet>
+     <servlet-name>movie_upd</servlet-name>
+     <servlet-class>movie_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>movie_upd</servlet-name>
+     <url-pattern>/movie_upd</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>movie_reg</servlet-name>
+     <servlet-class>movie_reg</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>movie_reg</servlet-name>
+     <url-pattern>/movie_reg</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+     <servlet-name>movieJdbc</servlet-name>
+     <servlet-class>movieJdbc</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>movieJdbc</servlet-name>
+     <url-pattern>/movieJdbc</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  <servlet-name>movie_del</servlet-name>
+     <servlet-class>movie_del</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>movie_del</servlet-name>
+     <url-pattern>/movie_del</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+     <servlet-name>person_reg</servlet-name>
+     <servlet-class>person_reg</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>person_reg</servlet-name>
+     <url-pattern>/person_reg</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>person_del</servlet-name>
+     <servlet-class>person_del</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>person_del</servlet-name>
+     <url-pattern>/person_del</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+     <servlet-name>personJdbc</servlet-name>
+     <servlet-class>personJdbc</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>personJdbc</servlet-name>
+     <url-pattern>/personJdbc</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>person_upd</servlet-name>
+     <servlet-class>person_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>person_upd</servlet-name>
+     <url-pattern>/person_upd</url-pattern>
+  </servlet-mapping>
+
+  
+  
+  <servlet>
+     <servlet-name>role_reg</servlet-name>
+     <servlet-class>role_reg</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>role_reg</servlet-name>
+     <url-pattern>/role_reg</url-pattern>
+  </servlet-mapping>
+
+
+ <servlet>
+     <servlet-name>roleJdbc</servlet-name>
+     <servlet-class>roleJdbc</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>roleJdbc</servlet-name>
+     <url-pattern>/roleJdbc</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>role_del</servlet-name>
+     <servlet-class>role_del</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>role_del</servlet-name>
+     <url-pattern>/role_del</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>role_upd</servlet-name>
+     <servlet-class>role_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>role_upd</servlet-name>
+     <url-pattern>/role_upd</url-pattern>
+  </servlet-mapping>
+
+ 
+  
+</web-app>
+
