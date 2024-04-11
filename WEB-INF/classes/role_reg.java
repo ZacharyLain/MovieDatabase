@@ -59,7 +59,7 @@ public class role_reg extends HttpServlet {
       );
 
       // Create a Statement
-      pstmt = con.prepareStatement("insert into movie_role (mr_roleName)) VALUES (?)");
+      pstmt = con.prepareStatement("insert into movie_role (mr_roleName) VALUES (?)");
     }
     catch (Exception ex) {
       ex.printStackTrace();
@@ -67,7 +67,7 @@ public class role_reg extends HttpServlet {
   }
 
   /** Store a student record to the database */
-  private void storeRole(String mr_roleName ) throws SQLException {
+  private void storeRole(String mr_roleName) throws SQLException {
     pstmt.setString(1, mr_roleName);
     
     pstmt.executeUpdate();
