@@ -8,3 +8,5 @@ idea/shelf/
 /dataSources.local.xml
 # GitHub Copilot persisted chat sessions
 .idea/copilot/chatSessions
+
+/WEB-INF/classes/*.class
