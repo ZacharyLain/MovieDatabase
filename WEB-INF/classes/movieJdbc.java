@@ -62,6 +62,9 @@ public class movieJdbc extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        
+        // add a button to take back to the main page
+		out.println("<br><p><a href=\"\\Movie\\index.html\"><img border=\"0\" src=\".\\html\\goback.jpg\" width=\"100\" height=\"66\"></a></p>");
         out.println("</body></html>");
     }
 }
