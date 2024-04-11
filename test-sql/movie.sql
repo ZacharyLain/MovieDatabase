@@ -102,6 +102,7 @@ SELECT p.p_id, p_firstName, p_lastName, p_gender, mpr.compensation FROM person p
 -- reset database
 delete from movie;
 alter table movie modify m_id generated always as identity restart start with 1;
+alter table movie_role modify mr_id generated always as identity restart start with 5;
 
 -- recompile java
 -- this is just for reference and is also not sql
