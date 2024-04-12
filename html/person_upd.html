@@ -1,0 +1,39 @@
+
+<head>
+    <title>Movie Update</title>
+  </head>
+
+<html>
+  <body>
+    <h2><font color="#FF0000">Update a Person</font></h2>
+    <form method = "get" action = "/Movie/person_upd">
+      <p>person ID: <font color = "#FF0000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<input type = "text" name = "p_id" size="12">&nbsp;
+      </p>
+    <p>
+        First Name:&nbsp;
+         <input type = "text" name = "p_firstName" size="21">&nbsp;
+    </p>
+    <p>
+        Last Name:&nbsp;
+         <input type = "text" name = "p_lastName" size="21">&nbsp;
+    </p>
+    <p>
+        Gender:&nbsp;&nbsp;&nbsp;<select name="p_gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </p>
+      <p>
+         
+      </p>
+      <p>
+        <input type="submit" name="Submit" value="Submit">
+        <input type="reset" value="Reset">
+      </p>
+    </form>
+    <p><font color = "#FF0000">* required fields</font></p>
+      <p><a href="\Movie\index.html">
+    <img border="0" src="goback.jpg" width="41" height="66"></a></p>
+  </body>
+</html>
+
