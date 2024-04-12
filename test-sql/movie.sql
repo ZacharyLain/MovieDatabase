@@ -66,16 +66,16 @@ INSERT INTO rating VALUES (3, 'PG');
 INSERT INTO rating VALUES (4, 'PG-13');
 
 -- Movie Roles
-INSERT INTO movie_role VALUES (1, 'Director');
-INSERT INTO movie_role VALUES (2, 'Writer');
-INSERT INTO movie_role VALUES (3, 'Actor');
-INSERT INTO movie_role VALUES (4, 'Producer');
+INSERT INTO movie_role VALUES ('Director');
+INSERT INTO movie_role VALUES ('Writer');
+INSERT INTO movie_role VALUES ('Actor');
+INSERT INTO movie_role VALUES ('Producer');
 
 -- People
-INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (1, 'John', 'Doe', 'Male');
-INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (2, 'Jane', 'Doe', 'Female');
-INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (3, 'Alice', 'Smith', 'Female');
-INSERT INTO person (p_id, p_firstName, p_lastName, p_gender) VALUES (4, 'Bob', 'Jones', 'Male');
+INSERT INTO person (p_firstName, p_lastName, p_gender) VALUES ('John', 'Doe', 'Male');
+INSERT INTO person (p_firstName, p_lastName, p_gender) VALUES ('Jane', 'Doe', 'Female');
+INSERT INTO person (p_firstName, p_lastName, p_gender) VALUES ('Alice', 'Smith', 'Female');
+INSERT INTO person (p_firstName, p_lastName, p_gender) VALUES ('Bob', 'Jones', 'Male');
 
 -- Movies with year only
 INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('The Shawshank Redemption', 1994, 142, 1, 3);
@@ -103,6 +103,7 @@ SELECT p.p_id, p_firstName, p_lastName, p_gender, mpr.compensation FROM person p
 delete from movie;
 alter table movie modify m_id generated always as identity restart start with 1;
 alter table movie_role modify mr_id generated always as identity restart start with 5;
+alter table person modify p_id generated always as identity restart start with 5;
 
 -- recompile java
 -- this is just for reference and is also not sql
