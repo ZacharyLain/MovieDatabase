@@ -7,38 +7,17 @@
 	  <body>
 	    <h2 align="left"><font color="#FF0000">Add a Person</font></h2>
 		<form method = "post" action = "/Movie/person_reg">
-	      <p>First Name: <font color = "#FF0000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<input type = "text" name = "p_firstName" size="12">&nbsp;
-	         Last Name: <font color = "#FF0000">*</font> <input type = "text" name = "lastName" size="21">&nbsp;
-	      </p>
-	      <p>Description:&nbsp;&nbsp;&nbsp;
-	         <input type = "text" name = "p_lastName" size = "21">&nbsp;
-	      </p>
-		  Release Date: <input type = "number" name = "compensation" size = "10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		  Length:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	         <input type = "text" name = "m_length" size = "15">&nbsp;
-	      <p>Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	         <select size = "1" name = "cat_id">
-	           <option value = "1">Action</option>
-	           <option value = "2">Animation</option>
-	           <option value = "3">Comedy</option>
-			   <option value = "4">Drama</option>
-	           <option value = "5">Family</option>
-	           <option value = "6">Herror</option>
-			   <option value = "7">Romance</option>
-	           <option value = "8">Fantasy</option>
-	         </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Role:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 <select size = "1" name = "rating_id">
-	           <option value = "1">G</option>
-	           <option value = "2">R</option>
-	           <option value = "3">PG</option>
-			   <option value = "4">PG-13</option>
-			 </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      <p>
+          First Name: <font color = "#FF0000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<input type = "text" name = "p_firstName" size="12">&nbsp;
+	        Last Name: <font color = "#FF0000">*</font> <input type = "text" name = "p_lastName" size="21">&nbsp;
 	      </p>
 	      <p>
-	         &nbsp;
+          Gender:&nbsp;&nbsp;&nbsp;<select name = "p_gender">
+            <option value = "Male">Male</option>
+            <option value = "Female">Female</option>
 	      </p>
-	      <p><input type = "submit" name = "Submit" value = "Submit">
-	         <input type = "reset" value = "Reset">
+			<input type = "submit" name = "Submit" value = "Submit">
+	        <input type = "reset" value = "Reset">
 	      </p>
 	    </form>
 	    <p><font color = "#FF0000">* required fields</font></p>
