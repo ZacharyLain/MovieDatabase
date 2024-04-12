@@ -14,7 +14,7 @@ public class role_del extends HttpServlet
 			Connection con=null; 
           
             String mr_id = request.getParameter("mr_id");
-            String mr_roleName = request.getParameter("mr_roleName");
+  
 
 		try
 		{			
@@ -50,7 +50,7 @@ public class role_del extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "delete  from movie_role where mr_id = \'"+mr_id+"\'";
+		query = "delete from movie_role where mr_id = \'"+mr_id+"\'";
 		
 		out.println("<html><head><title>Role has been deleted</title>");	 
 		out.println("</head><body>");
