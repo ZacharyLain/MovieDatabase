@@ -14,9 +14,6 @@ public class person_del extends HttpServlet
 			Connection con=null; 
           
             String p_id = request.getParameter("p_id");
-            String p_firstName = request.getParameter("p_firstName");
-            String p_lastName = request.getParameter("p_lastName");
-            String p_gender = request.getParameter("p_gender");
 
 		try
 		{			
@@ -52,8 +49,10 @@ public class person_del extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		 query = "DELETE FROM person WHERE p_id = '" + p_id + "' OR (LOWER(p_firstName) = '" + p_firstName.toLowerCase() + "' AND LOWER(p_lastName) = '" + p_lastName.toLowerCase() + "')";
-		// could remove by name here too if you do query = "DELETE FROM person WHERE LOWER(p_firstName) = '" + p_firstName.toLowerCase() + "' AND LOWER(p_lastName) = '" + p_lastName.toLowerCase() + "'";
+		if (p_id != null && !p_id.isEmpty()) {
+			query = "DELETE FROM person WHERE p_id = '" + p_id + "'";
+		}
+	
 		out.println("<html><head><title>Person has been deleted</title>");	 
 		out.println("</head><body>");
 		

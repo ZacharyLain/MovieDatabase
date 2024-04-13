@@ -25,7 +25,7 @@ public class moviePeopleJdbc  extends HttpServlet {
           stmt = con.createStatement();
 
       // HTML header
-      out.println("<html><head><title>Movie People Report</title></head><body>");
+      out.println("<html><head><title>Cast/Crew Report</title></head><body>");
 
       // Add a form to the page
       // The form will have three text inputs for the user to enter search criteria

@@ -23,11 +23,31 @@ public class movieJdbc extends HttpServlet {
                 "jdbc:oracle:thin:@127.0.0.1:1521:orcl", "c##project", "project"
             );
             
+            // Add a form to the page
+            // The form will have three text inputs for the user to enter search criteria
+            out.println("<center><form action='movieJdbc' method='post'>" +
+                        "<div>" +
+                            "<label for='search1'>Release Date:</label>" +
+                            "<input type='text' id='search1' name='search1'>" +
+                        "</div>" +
+                        "<div>" +
+                            "<button type='submit'>Submit</button>" +
+                        "</div>" +
+                        "</form></center>");
+
+            String releaseDate = request.getParameter("search1");
+
+
             // Create a statement and execute a query
             stmt = con.createStatement();
             String query = "SELECT m_id, m_title, m_date, m_length, cat_name, rating_name " +
                            "FROM movie, category, rating " +
                            "WHERE movie.rating_id = rating.rating_id AND movie.cat_id = category.cat_id";
+
+            if (releaseDate != null && !releaseDate.isEmpty()) {
+                query += " AND m_date = '" + releaseDate + "'";
+            }
+
             rs = stmt.executeQuery(query);
             
             // HTML table header
@@ -66,5 +86,10 @@ public class movieJdbc extends HttpServlet {
         // add a button to take back to the main page
 		out.println("<br><p><a href=\"\\Movie\\index.html\"><img border=\"0\" src=\".\\html\\goback.jpg\" width=\"100\" height=\"66\"></a></p>");
         out.println("</body></html>");
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        doGet(request, response);
     }
 }
