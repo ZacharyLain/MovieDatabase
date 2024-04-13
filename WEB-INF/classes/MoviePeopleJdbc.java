@@ -71,7 +71,7 @@ public class MoviePeopleJdbc  extends HttpServlet {
       }
 
       if (!person.isEmpty()) {
-        query += " WHERE LOWER(CONCAT(p.p_firstname, \' \', p.p_lastname)) = \'" + person.toLowerCase() + "\'";
+        query += " WHERE LOWER(~p.p_firstname || \' \' || p.p_lastname) = \'" + person.toLowerCase() + "\'";
       }
 
       if (!role.isEmpty()) {
