@@ -6,6 +6,7 @@
 
 <web-app>
   
+  <!-- MOVIE -->
    <servlet>
      <servlet-name>movie_upd</servlet-name>
      <servlet-class>movie_upd</servlet-class>
@@ -45,7 +46,7 @@
      <url-pattern>/movie_del</url-pattern>
   </servlet-mapping>
   
-  
+  <!-- PEOPLE -->
   
   <servlet>
      <servlet-name>person_reg</servlet-name>
@@ -87,7 +88,7 @@
      <url-pattern>/person_upd</url-pattern>
   </servlet-mapping>
 
-  
+   <!-- ROLE -->
   
   <servlet>
      <servlet-name>role_reg</servlet-name>
@@ -130,6 +131,47 @@
      <url-pattern>/role_upd</url-pattern>
   </servlet-mapping>
 
+
+   <!-- MOVIE PEOPLE -->
+   <servlet>
+     <servlet-name>moviePeopleJdbc</servlet-name>
+     <servlet-class>moviePeopleJdbc</servlet-class>
+    </servlet>
+
+   <servlet-mapping>
+     <servlet-name>moviePeopleJdbc</servlet-name>
+     <url-pattern>/moviePeopleJdbc</url-pattern>
+   </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>mpr_reg</servlet-name>
+     <servlet-class>mpr_reg</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>mpr_reg</servlet-name>
+     <url-pattern>/mpr_reg</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>mpr_del</servlet-name>
+     <servlet-class>mpr_del</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>mpr_del</servlet-name>
+     <url-pattern>/mpr_del</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>mpr_upd</servlet-name>
+     <servlet-class>mpr_upd</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>mpr_upd</servlet-name>
+     <url-pattern>/mpr_upd</url-pattern>
+  </servlet-mapping>
  
   
 </web-app>
