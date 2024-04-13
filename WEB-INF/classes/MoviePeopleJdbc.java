@@ -30,56 +30,52 @@ public class MoviePeopleJdbc  extends HttpServlet {
       String currentSort = request.getParameter("sort");
 
       // Make a sorting drop down menu
-      out.println("<center><form action='personJdbc' method='post'>" +
-                  "<select name='sort' onchange='this.form.submit()'>" +
-                  "<option value='p_id'"  + ("p_id".equals(currentSort) ? " selected" : "") + ">ID</option>" +
-                  "<option value='p_firstName'"  + ("p_firstName".equals(currentSort) ? " selected" : "") + ">First Name</option>" +
-                  "<option value='p_lastName'"  + ("p_lastName".equals(currentSort) ? " selected" : "") + ">Last Name</option>" +
-                  "<option value='male'" + ("male".equals(currentSort) ? " selected" : "") + ">Male</option>" +
-                  "<option value='female'" + ("female".equals(currentSort) ? " selected" : "") + ">Female</option>" +
-                  "<option value='compensation'"  + ("compensation".equals(currentSort) ? " selected" : "") + ">Compensation</option>" +
-                  "</select>" +
-                  "</form></center>");
+	  out.println("<center><form action='personJdbc' method='post'>" +
+      "<div>" +
+      "<label for='search1'>Movie Name:</label>" +
+      "<input type='text' id='search1' name='search1'>" +
+      "</div>" +
+      "<div>" +
+      "<label for='search2'>Full Person Name:</label>" +
+      "<input type='text' id='search2' name='search2'>" +
+      "</div>" +
+      "<div>" +
+      "<label for='search3'>Role Name:</label>" +
+      "<input type='text' id='search3' name='search3'>" +
+      "</div>" +
+      "<div>" +
+      "<button type='submit'>Submit</button>" +
+      "</div>" +
+      "</form></center>");
+
 
       // Make table header
       out.println("<center><table border='1'><tr BGCOLOR='#cc cccc'>" +
                   "<td>ID</td><td>Movie Name</td><td>First Name</td><td>Last Name</td><td>Role</td><td>Compensation</td></tr>");
 
-      String sort = request.getParameter("sort");
-      String query = "SELECT mpr., p.p_firstName, p.p_lastName, p.p_gender, SUM(mpr.compensation) AS compensation FROM person \p " +
-                      "LEFT JOIN movie_people_role mpr ON p.p_id = mpr.p_id ";
+      String movie = request.getParameter("search1");
+      String person = request.getParameter("search2");
+      String role = request.getParameter("search3");
+
+      String query = 
+          "SELECT m.m_title, ~p.p_firstname || \' \' || p.p_lastname, mr.mr_roleName, mpr.compensation " +
+          "FROM movie_people_role mpr " +
+          "JOIN person p ON mpr.p_id = p.p_id " +
+          "JOIN movie m ON mpr.m_id = m.m_id " +
+          "JOIN movie_role mr ON mpr.mr_id = mr.mr_id";
 
       // Add sorting to the query
-      if ("male".equals(sort) || "female".equals(sort)) {
-        query += "WHERE LOWER(p.p_gender) = '" + sort + "' ";
-      }
-                    
-      query += "GROUP BY p.p_id, p.p_firstName, p.p_lastName, p.p_gender ";
       
-      if (sort != null && !"male".equals(sort) && !"female".equals(sort)) {           
-        switch (sort) {
-          case "p_id":
-              query += "ORDER BY p.p_id";
-              break;
-          case "p_firstName":
-              query += "ORDER BY p.p_firstName";
-              break;
-          case "p_lastName":
-              query += "ORDER BY p.p_lastName";
-              break;
-          case "compensation":
-              query += "ORDER BY compensation DESC";
-              break;
-          default:
-              // Default case, possibly throw an error or log a warning
-              out.println("<h1>Invalid sort parameter: " + sort + "</h1>");
-              break;
-        }
+      if (!movie.isEmpty()) {
+        query += " WHERE LOWER(m.m_title) = \'" + movie.toLowerCase() + "\'";
       }
 
-      if (sort == null) {
-        // Set default sort if none is provided
-        sort = "p_id";
+      if (!person.isEmpty()) {
+        query += " WHERE LOWER(CONCAT(p.p_firstname, \' \', p.p_lastname)) = \'" + person.toLowerCase() + "\'";
+      }
+
+      if (!role.isEmpty()) {
+        query += " WHERE LOWER(mr.mr_title) = \'" + role.toLowerCase() + "\'";
       }
 
       rs = stmt.executeQuery(query);
@@ -87,10 +83,9 @@ public class MoviePeopleJdbc  extends HttpServlet {
       // Process the result set
       while (rs.next()) {
         out.println("<tr>" + 
-                    "<td>" + rs.getString("p_id") + "</td>" +
-                    "<td>" + rs.getString("p_firstName") + "</td>" +
-                    "<td>" + rs.getString("p_lastName") + "</td>" +
-                    "<td>" + rs.getString("p_gender") + "</td>" + 
+                    "<td>" + rs.getString("m_title") + "</td>" +
+                    "<td>" + rs.getString("p_firstName") + " " + rs.getString("p_lastname") + "</td>" +
+                    "<td>" + rs.getString("mr_rolename") + "</td>" + 
                     "<td>" + rs.getString("compensation") + "</td>" + 
                     "</tr>");
       }
