@@ -62,7 +62,7 @@ public class mpr_upd extends HttpServlet
 			"AND p_id = \'" + p_id + "\'" +
 			"AND mr_id = \'" + mr_id + "\'";
 
-		out.println("<html><head><title>Movie People Role's Compensation has been updated</title>");	 
+		out.println("<html><head><title>Crew/Cast Member's Compensation has been updated</title>");	 
 		out.println("</head><body>");
 		
 		out.print( "<br /><b><center><font color=\"BLACK\"><H2>One Record has updated</H2></font>");
