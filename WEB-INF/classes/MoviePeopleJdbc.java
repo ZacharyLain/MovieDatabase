@@ -67,24 +67,22 @@ public class moviePeopleJdbc  extends HttpServlet {
           "JOIN movie_role mr ON mpr.mr_id = mr.mr_id";
 
       // Add sorting to the query
-      
-      if (!movie.isEmpty()) {
-        query += " WHERE LOWER(m.m_title) = \'" + movie.toLowerCase() + "\'";
+      boolean whereAdded = false;
+
+      if (movie != null && !movie.isEmpty()) {
+          query += " WHERE LOWER(m.m_title) = '" + movie.toLowerCase() + "'";
+          whereAdded = true;
       }
 
-      if (!person.isEmpty()) {
-        if (movie.isEmpty()) query += " WHERE";
-        else query += " AND";
-
-        query += " LOWER(p.p_firstName || \' \' || p.p_lastName) = \'" + person.toLowerCase() + "\'";
+      if (person != null && !person.isEmpty()) {
+        query += (whereAdded ? " AND" : " WHERE") + " LOWER(p.p_firstName || ' ' || p.p_lastName) = '" + person.toLowerCase() + "'";
+        whereAdded = true;
       }
 
-      if (!role.isEmpty()) {
-        if (movie.isEmpty() && person.isEmpty()) query += " WHERE";
-        else query += " AND";
-
-        query += " LOWER(mr.mr_roleName) = \'" + role.toLowerCase() + "\'";
+      if (role != null && !role.isEmpty()) {
+          query += (whereAdded ? " AND" : " WHERE") + " LOWER(mr.mr_roleName) = '" + role.toLowerCase() + "'";
       }
+
 
       rs = stmt.executeQuery(query);
       
