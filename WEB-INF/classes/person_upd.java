@@ -56,7 +56,7 @@ public class person_upd extends HttpServlet
 		}
 		
 		// create the query to update the movie
-		query = "update person set p_firstName = \'"+p_firstName+"\', p_lastName = \'"+p_lastName+"\', p_gender = \'"+p_gender+"\'";
+		query = "update person set p_firstName = \'"+p_firstName+"\', p_lastName = \'"+p_lastName+"\', p_gender = \'"+p_gender+"\' where p_id = \'"+p_id+"\'";
 		
 		out.println("<html><head><title>Person has been updated</title>");	 
 		out.println("</head><body>");
