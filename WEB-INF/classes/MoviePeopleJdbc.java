@@ -50,7 +50,7 @@ public class moviePeopleJdbc  extends HttpServlet {
 
       // Make table header
       out.println("<center><table border='1'><tr BGCOLOR='#cc cccc'>" +
-                  "<td>ID</td><td>Movie Name</td><td>Full Name</td><td>Role</td><td>Compensation</td></tr>");
+                  "<td>Cast/Crew ID</td><td>Movie ID</td><td>Movie Name</td><td>Person ID<td>Full Name</td><td>Role ID</td><td>Role</td><td>Compensation</td></tr>");
 
       String movie = request.getParameter("search1");
       String person = request.getParameter("search2");
@@ -60,7 +60,7 @@ public class moviePeopleJdbc  extends HttpServlet {
       Boolean roleEmpty = true;
 
       String query = 
-          "SELECT mpr.mrp_id, m.m_title, p.p_firstName || \' \' || p.p_lastName as full_name, mr.mr_roleName, mpr.compensation " +
+          "SELECT mpr.mrp_id, m.m_id, m.m_title, p.p_id, p.p_firstName || \' \' || p.p_lastName as full_name, mr.mr_id, mr.mr_roleName, mpr.compensation " +
           "FROM movie_people_role mpr " +
           "JOIN person p ON mpr.p_id = p.p_id " +
           "JOIN movie m ON mpr.m_id = m.m_id " +
@@ -92,8 +92,11 @@ public class moviePeopleJdbc  extends HttpServlet {
       while (rs.next()) {
         out.println("<tr>" + 
                     "<td>" + rs.getString("mrp_id") + "</td>" +
+                    "<td>" + rs.getString("m_id") + "</td>" +
                     "<td>" + rs.getString("m_title") + "</td>" +
+                    "<td>" + rs.getString("p_id") + "</td>" +
                     "<td>" + rs.getString("full_name") + "</td>" +
+                    "<td>" + rs.getString("mr_id") + "</td>" +
                     "<td>" + rs.getString("mr_roleName") + "</td>" + 
                     "<td>" + rs.getString("compensation") + "</td>" + 
                     "</tr>");
