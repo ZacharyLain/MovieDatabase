@@ -51,10 +51,10 @@ public class mpr_del extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		 query = "DELETE FROM movie_person_role" +
-			"WHERE m_id = \'" + m_id + "\'" +
-			"AND p_id = \'" + p_id + "\'" +
-			"AND mr_id = \'" + mr_id + "\'";
+		 query = "DELETE FROM movie_people_role" +
+			" WHERE m_id = \'" + m_id + "\'" +
+			" AND p_id = \'" + p_id + "\'" +
+			" AND mr_id = \'" + mr_id + "\'";
 			
 		out.println("<html><head><title>Cast/Crew has been deleted</title>");	 
 		out.println("</head><body>");
