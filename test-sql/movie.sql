@@ -87,6 +87,7 @@ INSERT INTO movie (m_title, m_date, m_length, cat_id, rating_id) VALUES ('R-Rate
 
 -- Movie People Roles
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 1, 1, 1000000);
+INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 1, 1, 1000000);
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 1, 2, 500000);
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (3, 1, 3, 200000);
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 2, 1, 1000000);
