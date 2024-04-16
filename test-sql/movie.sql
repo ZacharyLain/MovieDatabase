@@ -97,15 +97,80 @@ INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (1, 3, 1,
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (2, 3, 2, 500000);
 INSERT INTO movie_people_role (mr_id, m_id, p_id, compensation) VALUES (3, 3, 3, 200000);
 
--- select people and their compensation for a movie
-SELECT p.p_id, p_firstName, p_lastName, p_gender, mpr.compensation FROM person p LEFT JOIN movie_people_role mpr ON p.p_id = mpr.p_id;
+-- Queries
+-- Find all movies directed by John Doe.
+SELECT
+  mpr.mrp_id,
+  m.m_id,
+  m.m_title,
+  p.p_id,
+  p.p_firstName || ' ' || p.p_lastName as full_name,
+  mr.mr_id, mr.mr_roleName,
+  mpr.compensation
+  FROM movie_people_role mpr
+  JOIN person p on mpr.p_id = p.p_id
+  JOIN movie m on mpr.m_id = m.m_id
+  JOIN movie_role mr on mpr.mr_id = mr.mr_id
+  WHERE p.p_firstName = 'John'
+  AND p.p_lastName = 'Doe'
+  AND mr.mr_roleName = 'Director';
+-- Find all movies released in 1994.
+SELECT
+  m.m_id,
+  m.m_title,
+  m.m_date,
+  m.m_length,
+  c.cat_name,
+  r.rating_name
+  FROM movie m
+  JOIN category c on m.cat_id = c.cat_id
+  JOIN rating r on m.rating_id = r.rating_id
+  WHERE m.m_date = 1994;
+-- Find the highest amount of money earned by an actress in a movie. 
+SELECT
+  p.p_firstName || ' ' || p.p_lastName as full_name,
+  p.p_gender,
+  m.m_title,
+  mr.mr_roleName,
+  mpr.compensation
+  FROM movie_people_role mpr
+  JOIN person p on mpr.p_id = p.p_id
+  JOIN movie m on mpr.m_id = m.m_id
+  JOIN movie_role mr on mpr.mr_id = mr.mr_id
+  WHERE mpr.compensation = (SELECT MAX(mpr2.compensation) FROM movie_people_role mpr2
+                            JOIN movie_role mr2 on mpr2.mr_id = mr2.mr_id
+                            JOIN person p2 on mpr2.p_id = p2.p_id 
+                            WHERE mr2.mr_roleName = 'Actor' AND p2.p_gender = 'Female');
+-- Find actors and actresses who joined a movie. 
+SELECT
+  p.p_firstName || ' ' || p.p_lastName as full_name,
+  m.m_title
+  FROM movie_people_role mpr
+  JOIN person p on mpr.p_id = p.p_id
+  JOIN movie m on mpr.m_id = m.m_id
+  JOIN movie_role mr on mpr.mr_id = mr.mr_id
+  WHERE mr.mr_roleName = 'Actor'
+  AND m.m_title = 'The Shawshank Redemption';
+-- Find movies that people are more watching for an actor or an actress.
+SELECT
+  p.p_firstName || ' ' || p.p_lastName as full_name,
+  m.m_title
+  FROM movie_people_role mpr
+  JOIN person p on mpr.p_id = p.p_id
+  JOIN movie m on mpr.m_id = m.m_id
+  JOIN movie_role mr on mpr.mr_id = mr.mr_id
+  WHERE mr.mr_roleName = 'Actor';
 
 -- reset database
+delete from movie_people_role;
 delete from movie;
+delete from person;
+delete from movie_role;
+delete from rating;
+delete from category;
+
+
+-- reset auto increment with the values above already inside if they are not added correctly
 alter table movie modify m_id generated always as identity restart start with 1;
 alter table movie_role modify mr_id generated always as identity restart start with 5;
 alter table person modify p_id generated always as identity restart start with 5;
-
--- recompile java
--- this is just for reference and is also not sql
-javac -classpath ".;C:\Users\zacha\Oakland\CSI 3450\apache-tomcat-9.0.87\webapps\Movie\WEB-INF\lib\javax.servlet-api-4.0.1.jar;C:\Users\zacha\Oakland\CSI 3450\apache-tomcat-9.0.87\webapps\Movie\WEB-INF\lib\ojdbc8-21.1.0.0.jar" -d "C:\Users\zacha\Oakland\CSI 3450\apache-tomcat-9.0.87\webapps\Movie\WEB-INF\classes" *.java
